@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Request Form - Wireframe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+        }
+
+        .form-container {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-number {
+            background: #3498db;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .radio-item input[type="radio"] {
+            width: auto;
+        }
+
+        .file-upload {
+            border: 2px dashed #ddd;
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .file-upload:hover {
+            border-color: #3498db;
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #ecf0f1;
+            margin-bottom: 20px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #3498db;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .form-preview {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin: 2px;
+        }
+
+        .wireframe-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Data Request & Report Development Form</h1>
+            <p>Use this form to request new data extracts, dashboards, reports, or modifications to existing reports. Your request will be reviewed by our BI team.</p>
+        </div>
+
+        <div class="form-container">
+            <div class="wireframe-note">
+                <strong>Wireframe Note:</strong> This is an interactive mockup showing the proposed form structure and user experience flow.
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <form id="dataRequestForm">
+                <!-- Section 1: Basic Information -->
+                <div class="section">
+                    <div class="section-title">
+                        <div class="section-number">1</div>
+                        Basic Information
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="requestorName">Requestor Name <span class="required">*</span></label>
+                            <input type="text" id="requestorName" name="requestorName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Department/Team <span class="required">*</span></label>
+                            <select id="department" name="department" required>
+                                <option value="">Select Department</option>
+                                <option value="sales">DV</option>
+                                <option value="marketing">BOI</option>
+                                <option value="finance">Finance</option>
+                                <option value="operations">Operations</option>
+                                <option value="hr">Human Resources</option>
+                                <option value="it">IT</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">Priority Level <span class="required">*</span></label>
+                            <select id="priority" name="priority" required>
+                                <option value="">Select Priority</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="requestTitle">Request/Report Title <span class="required">*</span></label>
+                        <input type="text" id="requestTitle" name="requestTitle" placeholder="Brief, descriptive title for your request" required>
+                    </div>
+                </div>
+
+                <!-- Section 2: Request Type & Details -->
+                <div class="section">
+                    <div class="section-title">
+                        <div class="section-number">2</div>
+                        Request Type & Details
+                    </div>
+
+                    <div class="form-group">
+                        <label>Request Type <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="newReport" name="requestType" value="new_report" required>
+                                <label for="newReport">New Report Request</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="modifyExisting" name="requestType" value="modify_existing" required>
+                                <label for="modifyExisting">Modify Existing Report</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="newDataExtract" name="requestType" value="new_data_extract" required>
+                                <label for="newDataExtract">New Data Extract</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="rjaDataRequest" name="requestType" value="rja_data_request" required>
+                                <label for="rjaDataRequest">RJA Data Request</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="adhocAnalysis" name="requestType" value="adhoc_analysis" required>
+                                <label for="adhocAnalysis">Adhoc Data Analysis</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="stakeholders">Key Stakeholders</label>
+                        <input type="text" id="stakeholders" name="stakeholders" placeholder="List other team members who should be involved or notified">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="businessJustification">Business Justification <span class="required">*</span></label>
+                        <textarea id="businessJustification" name="businessJustification" placeholder="Explain the business need and how this request will add value..." required></textarea>
+                        <div class="help-text">Describe the business problem you're trying to solve and expected outcomes</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="detailedRequirements">Detailed Requirements <span class="required">*</span></label>
+                        <textarea id="detailedRequirements" name="detailedRequirements" placeholder="Provide specific details about what you need..." required></textarea>
+                        <div class="help-text">MentionInclude specific metrics, dimensions, filters, and any formatting requirements</div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pcCharges">PC Charges (if any)</label>
+                            <textarea id="pcCharges" name="pcCharges" placeholder="Specify any PC charges or cost implications..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="specificColumns">Specific Columns Required</label>
+                            <textarea id="specificColumns" name="specificColumns" placeholder="List the specific columns/fields needed..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="userInputsFilters">User Inputs/Filters</label>
+                            <textarea id="userInputsFilters" name="userInputsFilters" placeholder="Specify filters like Team, date, etc..."></textarea>
+                        </div>
+      
+                    </div>
+                </div>
+
+                <!-- Section 3: Data Sources & Technical Details -->
+                <div class="section">
+                    <div class="section-title">
+                        <div class="section-number">3</div>
+                        Additional Report Requirment
+                    </div>
+
+                    <div class="form-group">
+                            <label for="DateRange">Date Range Required </label>
+                            <textarea id="DateRange" name="DateRange" placeholder="Specify the time period if any"></textarea>
+                        </div>
+
+  
+
+
+                   
+                        <div class="form-group">
+                            <label for="frequency">Update Frequency</label>
+                            <select id="frequency" name="frequency">
+                                <option value="">Select Frequency</option>
+                                <option value="one_time">One-time Request</option>
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="quarterly">Quarterly</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Output & Delivery -->
+                <div class="section">
+                    <div class="section-title">
+                        <div class="section-number">4</div>
+                        Output & Delivery Preferences
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preferred Output Format</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dashboard" name="outputFormat" value="dashboard">
+                                <label for="dashboard">Crystal Report</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dashboard" name="outputFormat" value="dashboard">
+                                <label for="dashboard">Power BI Dashboard Report</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="report" name="outputFormat" value="report">
+                                <label for="report">PDF Report</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="excelOutput" name="outputFormat" value="excel">
+                                <label for="excelOutput">Excel Spreadsheet</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="email" name="outputFormat" value="email">
+                                <label for="email">Email Summary</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="deadline">Requested Deadline</label>
+                            <input type="date" id="deadline" name="deadline">
+                        </div>
+                      
+                    </div>
+                </div>
+
+                <!-- Section 5: Additional Information -->
+                <div class="section">
+                    <div class="section-title">
+                        <div class="section-number">5</div>
+                        Additional Information
+                    </div>
+
+                    <div class="form-group">
+                        <label for="existingReports">Similar Existing Reports</label>
+                        <textarea id="existingReports" name="existingReports" placeholder="Are there any existing reports or analyses similar to this request?"></textarea>
+                    </div>
+
+                  
+
+                    <div class="form-group">
+                        <label for="attachments">Supporting Documents</label>
+                        <div class="file-upload" onclick="document.getElementById('fileInput').click()">
+                            <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg">
+                            <p>Click to upload or drag files here</p>
+                            <div class="help-text">Attach mockups, examples, or reference materials or existing reports for reference</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalNotes">Additional Notes</label>
+                        <textarea id="additionalNotes" name="additionalNotes" placeholder="Any other relevant information or special requirements..."></textarea>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary">Save as Draft</button>
+                    <button type="submit" class="btn btn-primary">Submit Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Progress bar functionality
+        const form = document.getElementById('dataRequestForm');
+        const progressFill = document.getElementById('progressFill');
+        const sections = document.querySelectorAll('.section');
+
+        function updateProgress() {
+            const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+            let filled = 0;
+            
+            inputs.forEach(input => {
+                if (input.value.trim() !== '') {
+                    filled++;
+                }
+            });
+            
+            const progress = (filled / inputs.length) * 100;
+            progressFill.style.width = progress + '%';
+        }
+
+        // Add event listeners to all form inputs
+        const allInputs = form.querySelectorAll('input, select, textarea');
+        allInputs.forEach(input => {
+            input.addEventListener('input', updateProgress);
+            input.addEventListener('change', updateProgress);
+        });
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submitted successfully! Your request has been sent to the BI team for review.');
+        });
+
+        // File upload feedback
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const files = e.target.files;
+            const fileUpload = document.querySelector('.file-upload');
+            
+            if (files.length > 0) {
+                fileUpload.innerHTML = `
+                    <p><strong>${files.length} file(s) selected:</strong></p>
+                    ${Array.from(files).map(file => `<div class="tag">${file.name}</div>`).join('')}
+                `;
+            }
+        });
+
+        // Initialize progress
+        updateProgress();
+    </script>
+</body>
+</html>
